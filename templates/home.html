@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+        
+<!-- uppar jumbotron -->
+<div class="jumbotron d-flex mt-2 text-center">
+  <div class="view overlay ">
+    <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg" width="80%" height="50%" class="img-fluid" alt="">
+    <a href="#">
+      <div class="mask rgba-white-slight"></div>
+    </a>
+  </div>
+  <div class="view overlay ">
+    <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg" width="80%" height="50%" class="img-fluid" alt="">
+    <a href="#">
+      <div class="mask rgba-white-slight"></div>
+    </a>
+  </div>
+</div>
+
+<!-- categories -->
+<div class="container-fluid  p-3  row">
+  <div class=" col ml-3 card border_r shadow p-2">
+    <div class=" card-body">
+      <img style="width: 97%;height: 259px;"  src="{% static 'images/men.jpg' %}" alt="">
+      <div class="mt-4">
+        <span class=" pink-text font-italic"> <i class="fas fa-female "></i> Women</span>
+        <a class="btn float-right btn-sm btn-unique" href="#">View Products</a>
+      </div>
+    </div>
+  </div>
+  <div class=" col ml-3 card border_r shadow  p-2">
+    <div class=" card-body">
+      <img style="width: 97%;height: 259px;"  src="{% static 'images/men.jpg' %}" alt="">
+      <div class="mt-4">
+        <span class=" pink-text font-italic"> <i class="fas fa-male    "></i> men</span>
+        <a class="btn float-right btn-sm btn-unique" href="#">View Products</a>
+      </div>
+    </div>
+  </div>
+  <div class=" col ml-3 border_r card shadow p-2">
+    <div class=" card-body">
+      <img style="width: 97%;height: 259px;"  src="{% static 'images/men.jpg' %}" alt="">
+      <div class="mt-4">
+        <span class=" pink-text font-italic"><i class="fas fa-child    "></i> Kids</span>
+        <a class="btn float-right btn-sm btn-unique" href="#">View Products</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- products -->
+<div class="container-fluid mt-2  col-11 ">
+  <div class="row p-2  "> 
+    <div class=" container-fluid col-12 p-3" style="width: 100%;">
+        <h2 class=" font-weight-bold">Selected Category Items/Featured Products</h2>
+        <div class="row  flex-wrap">
+          
+        {% for prod in products %}
+            <div class="col-4 mt-4 ">
+                <div class="card p-3">
+                  <div class="card-body">
+                    <img src="{{prod.img.url}}" class="jumbo_cont mb-3"  width="299px" height="190px" alt="">
+                    <a href="{% url 'product-details' prod.slug %}"> <span class="mt-2" style="color: white;">{{prod.name}}</span></a>
+                    <div class=" mt-2 form-inline float-lg-right ">
+                      <button type="button" class="btn btn-sm btn-success add_item" value="{{prod.id}}"> <i class="fa fa-cart-plus" aria-hidden="true"></i> Add Item</button>
+                      <a href="{% url 'product-details' prod.slug %}"> <button type="button"  class="btn btn-sm ml-3 btn-primary"> <i class="fas fa-save"></i> Details </button></a>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        {% endfor %}
+
+        </div>
+    </div>
+   </span>
+  </div>
+</div>
+
+        
+<!-- scripts -->
+<script>
+  $(document).on('click','.add_item', function(){
+    getitemId = $(this).val() 
+    console.log(getitemId)
+
+    $.ajax({
+      headers: {'X-CSRFToken': '{{csrf_token}}'},
+      type: "post", //action
+      url: "{% url 'index' %}", //page url
+      data: {'add_item':'add_item',getitemId:getitemId}, //first one for common name to compare function in viewsand second one for variables
+      success: function(response){ //response has returned values in it
+        //where we want to render the response
+        swal('item added','-','success') //popup for success
+      }
+  });
+  })
+</script>
+
+
+{% endblock body %}
+

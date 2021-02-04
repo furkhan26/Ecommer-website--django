@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<div class=" p-5">
+   <p class="display-4" style="text-align:center;"> Collection</p>
+   <h4><span><a href="/">Home</a>/ <a href="#">collection</a></span></h4>
+</div>
+
+<div class="containr">
+   <div class="row flex-row-reverse">
+      <div class="col-lg-9 ">
+         <div class="sort">
+            Sort By:
+            <span>
+            
+               <select>
+                  <option>Latest</option>
+                  <option>Alphabet</option>
+               </select>
+            </span>
+         </div>   
+         <div class="bor  mt-5">
+            <div class="row flex-wrap">
+               <div class="col-3">
+                  <div class="card jumbo_cont bg-light">
+                     <img class="card-img-top" src={% static 'images/kids.png' %}>
+                     <div class="card-body">
+                        <h4 class="card-title">T-shirt</h4>
+                        <p class="card-text">any text</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-3">
+                  <div class="card jumbo_cont bg-light">
+                     <img class="card-img-top" src={% static 'images/kids.png' %}>
+                     <div class="card-body">
+                        <h4 class="card-title">T-shirt</h4>
+                        <p class="card-text">any text</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-3">
+                  <div class="card jumbo_cont bg-light">
+                     <img class="card-img-top" src={% static 'images/kids.png' %}>
+                     <div class="card-body">
+                        <h4 class="card-title">T-shirt</h4>
+                        <p class="card-text">any text</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-3">
+                  <div class="card jumbo_cont bg-light">
+                     <img class="card-img-top" src={% static 'images/kids.png' %}>
+                     <div class="card-body">
+                        <h4 class="card-title">T-shirt</h4>
+                        <p class="card-text">any text</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-3">
+                  <div class="card jumbo_cont bg-light">
+                     <img class="card-img-top" src={% static 'images/kids.png' %}>
+                     <div class="card-body">
+                        <h4 class="card-title">T-shirt</h4>
+                        <p class="card-text">any text</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="col-lg-3">
+         <h4 class="font-weight-bold">FILTERS</h4>
+         <hr>
+         <div class="bor">
+            <li class="font-weight-bold">CATEGORY</li>
+
+            <div class="widgets_inner">
+               <ul class="list">
+                  
+                  <li >
+                     <input type="checkbox"   name="categories"> Shirts
+                  </li>
+
+                  <li >
+                     <input type="checkbox"   name="categories"> Shirts
+                  </li> 
+                  <li >
+                     <input type="checkbox"   name="categories"> Shirts
+                  </li>
+
+                  <li >
+                     <input type="checkbox"   name="categories"> Shirts
+                  </li>     
+                     
+               </ul>
+            </div>
+         </div>
+         <div class="bor">
+            <li class="font-weight-bold list">BRAND</li>
+
+            <div class="widgets_inner">
+               <ul class="list">
+                  
+                  <li >
+                     <input type="checkbox"   name="categories"> Brand-1
+                  </li>
+
+                  <li >
+                     <input type="checkbox"   name="categories"> Brand-2
+                  </li> 
+                  <li >
+                     <input type="checkbox"   name="categories"> Brand-3
+                  </li>
+
+                  <li >
+                     <input type="checkbox"   name="categories"> Brand-4
+                  </li>     
+                     
+               </ul>
+            </div>
+         </div>
+      </div>
+
+      
+   </div>
+</div>
+{% endblock body %}

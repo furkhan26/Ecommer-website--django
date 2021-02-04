@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<div class=" p-5">
+   <h4><span><a href="/">Home</a>/ <a href="#">collection</a></span></h4>
+</div>
+<div class="row container col-11">
+   <div class="col-lg-5 ml-5">
+      <div class="">
+         <img src="{{sl.img.url}}" style="height:400px;width:400px;border-radius:10px;">
+      </div>
+   </div>
+   <div class="col-lg-6 "> 
+      <h3 class="font-weight-bold" >{{sl.name}}</h3>
+      <h4 class="" style="color:#8a8686;">{{sl.brand}}</h4>
+      <h3>Rs:{{sl.price}}  <del style="color:#8a8686;">Rs: {{sl.delprice}}</del></h3><br>
+      <h4>Select Size:</h4>
+      <div class="row">
+         <button class=" btn btn-sm btn-light-green size">S</button>
+         <button class="btn btn-sm btn-light-green size">M</button>
+         <button class="btn btn-sm btn-light-green size">L</button>
+         <button class=" btn btn-sm btn-light-green size">XL</button>
+         <button class="btn btn-sm btn-light-green size">XXL</button>
+      </div>
+      <br>
+      <h5>Product Details</h5>
+      <p>Short sleevesCrewneck collar
+         Laser cut cat graphic at back<br>
+         Reflective PUMA Cat Logo at left chest<br>
+         Lightweight recycled jersey material</p>
+      <div class="row ">
+         <button class="btn btn-primary"><i class="fas fa-shopping-cart "></i> Add To Cart</button>
+         <button class="btn btn-dark ml-4"> Wish List</button>
+      </div>
+   </div>
+</div>
+<br>
+
+
+{% endblock body %}

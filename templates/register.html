@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+	<title>Rigister</title>
+	<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+
+	<style>
+		body,
+		html {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			background: #7abecc !important;
+		}
+	
+	</style>
+
+</head>
+<body>
+	<div class="container-fluid col-8 mt-5 p-3 ">
+		
+       <div class="card">
+       	<div class=" card-body ">
+       	<form method="POST" action="">
+        {% csrf_token %}
+            <div class="form-header text-center ">
+                <h3><i class="fa fa-user"></i> Register:</h3>
+            </div>
+            <div class="md-form">
+                <i class="fa fa-user prefix"></i>
+                <input type="text" id="form3" class="form-control" name="name" required="required">
+                <label for="form3">Your name</label>
+            </div>
+            <div class="md-form">
+                <i class="fa fa-envelope prefix"></i>
+                <input type="text" id="form2" class="form-control" name="email" required="required">
+                <label for="form2">Email</label>
+            </div>
+            <div class="md-form">
+                <i class="fa fa-phone prefix"></i>
+                <input type="text" id="form2" min="10" max="10" class="form-control" name="number" required="required">
+                <label for="form2">Phone Number</label>
+            </div>
+            <div class="md-form ml-5">
+                <div class="form-check-inline ">
+                    <input type="radio" id="male" name="gender" value="male">
+                    <span for="male">Male</span>
+
+                </div>
+                <div class="form-check-inline ">
+                    <input type="radio" id="male" name="gender" value="female">
+                    <span for="male">Female</span>
+                </div>
+                <div class="form-check-inline ">
+                    <input type="radio" id="male" name="gender" value="others">
+                    <span for="male">Others</span>
+                </div>
+            </div>
+            <div class="md-form">
+                <i class="fa fa-lock prefix"></i>
+                <input type="password" id="form4" class="form-control" name="pass" required="required">
+                <label for="form4">Your password</label>
+            </div>
+            <div class="md-form">
+                <i class="fa fa-lock prefix"></i>
+                <input type="password" id="form4" class="form-control" name="repass" required="required">
+                <label for="form4">Re password</label>
+            </div>
+            <div class="md-form text-center">
+                <button type="submit" class="btn btn-success">submit</button>
+            </div>
+       	</form>
+           <div>
+           {% for message in messages %}
+           <h3>{{message}}</h3>
+           {% endfor %}
+           </div>
+       	</div>
+       </div>
+		
+	</div>
+</body>
+</html>
+
+
+
